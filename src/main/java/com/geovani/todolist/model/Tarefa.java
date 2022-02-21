@@ -6,8 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tarefa")
@@ -32,6 +34,14 @@ public class Tarefa {
 	
 	@Column(name = "updated_ad")
 	private Date updateAt;
+	
+	private StatusTarefa status;
+	
+	private UrgenciaTarefa urgencia;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("tarefa")
+	private Usuario usuario;
 
 	public Long getId() {
 		return id;
@@ -74,5 +84,26 @@ public class Tarefa {
 	public void setUpdateAt(Date updateAt) {
 		this.updateAt = updateAt;
 	}
-		
+	
+	public StatusTarefa getStatus() {
+		return status;
+	}
+	public void setStatus(StatusTarefa status) {
+		this.status = status;
+	}
+	
+	public UrgenciaTarefa getUrgencia() {
+		return urgencia;
+	}
+	public void setUrgencia(UrgenciaTarefa urgencia) {
+		this.urgencia = urgencia;
+	}
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+			
 }
