@@ -1,7 +1,11 @@
 package com.geovani.todolist.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +25,18 @@ public class TarefaController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Tarefa createTarefa(@RequestBody Tarefa tarefa) {
 		return tarefaService.createTarefa(tarefa);
+	}
+	
+	@GetMapping
+	@ResponseStatus(HttpStatus.OK)
+	public List<Tarefa> getAllTarefas(){
+		return tarefaService.listAllTarefas(); 
+	}
+	
+	@GetMapping("/{id}")
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseEntity<Tarefa> getTarefaById(@PathVariable (value = "id") Long id){
+		return tarefaService.findTarefaById(id); 
 	}
 	
 }

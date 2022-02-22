@@ -25,7 +25,6 @@ public class Tarefa {
 	@Column(nullable = false)
 	private String descricao;
 	
-	@Column(nullable = false)
 	private Date deadLine;
 	
 	@CreationTimestamp
