@@ -1,5 +1,6 @@
 package com.geovani.todolist.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,14 +26,14 @@ public class Tarefa {
 	@Column(nullable = false)
 	private String descricao;
 	
-	private Date deadLine;
+	private LocalDateTime deadLine;
 	
 	@CreationTimestamp
 	@Column(name = "created_ad", nullable = false, updatable = false)
-	private Date createAt;
+	private LocalDateTime createAt;
 	
 	@Column(name = "updated_ad")
-	private Date updateAt;
+	private LocalDateTime updateAt;
 	
 	private StatusTarefa status;
 	
@@ -63,24 +64,24 @@ public class Tarefa {
 		this.descricao = descricao;
 	}
 
-	public Date getDeadLine() {
+	public LocalDateTime getDeadLine() {
 		return deadLine;
 	}
-	public void setDeadLine(Date deadLine) {
+	public void setDeadLine(LocalDateTime deadLine) {
 		this.deadLine = deadLine;
 	}
 
-	public Date getCreateAt() {
+	public LocalDateTime getCreateAt() {
 		return createAt;
 	}
-	public void setCreateAt(Date createAt) {
+	public void setCreateAt(LocalDateTime createAt) {
 		this.createAt = createAt;
 	}
 
-	public Date getUpdateAt() {
+	public LocalDateTime getUpdateAt() {
 		return updateAt;
 	}
-	public void setUpdateAt(Date updateAt) {
+	public void setUpdateAt(LocalDateTime updateAt) {
 		this.updateAt = updateAt;
 	}
 	
