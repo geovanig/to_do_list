@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 //import io.swagger.v3.oas.annotations.media.Schema;
 
@@ -34,12 +35,49 @@ public class Usuario {
 	@JsonIgnoreProperties("usuario")
 	private List<Tarefa> tarefa;
 
+	public Usuario() {}
+	
 	public Usuario(long id, String nome, String email, String senha, List<Tarefa> tarefa) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
+		this.tarefa = tarefa;
+	}
+
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public List<Tarefa> getTarefa() {
+		return tarefa;
+	}
+	public void setTarefa(List<Tarefa> tarefa) {
 		this.tarefa = tarefa;
 	}
 
