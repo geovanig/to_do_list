@@ -38,5 +38,19 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().headers()
 				.frameOptions().sameOrigin().and().cors().and().csrf().disable();
 	}
-		
+	
+//	@Override
+//	protected void configure(HttpSecurity http) throws Exception {
+//		http.authorizeRequests().antMatchers("/leitores/logar").permitAll().antMatchers("/leitores/cadastrar")
+//				.permitAll().anyRequest().authenticated().and().httpBasic().and().sessionManagement()
+//				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().cors().and().csrf().disable();
+//	}
+	
+//	.antMatchers("/h2-console/**").permitAll().
+//    .anyRequest().authenticated()
+//    .and().csrf().disable()
+//    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//    .and().headers().frameOptions().sameOrigin()
+//    .and().addFilterBefore(new AutenticacaoFilter(tokenService, autenticacaoService), UsernamePasswordAuthenticationFilter.class)
+	
 }

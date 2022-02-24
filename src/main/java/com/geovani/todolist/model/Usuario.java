@@ -9,9 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-//import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 @Entity
 @Table(name = "usuario")
@@ -25,7 +24,7 @@ public class Usuario {
 	private String nome;
 	
 	@Column(name = "email", nullable = false)
-	//@Schema(example = "email@email.com.br")
+	@Schema(example = "email@email.com.br")
 	private String email;
 	
 	@Column(name = "senha", nullable = false)
